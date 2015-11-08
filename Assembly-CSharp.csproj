@@ -48,7 +48,10 @@
      <Compile Include="Assets\Scripts\ChangeScoreText.cs" />
      <Compile Include="Assets\Scripts\Doughmake.cs" />
      <Compile Include="Assets\Scripts\changeScene.cs" />
+     <Compile Include="Assets\Scripts\lifeSystem.cs" />
      <Compile Include="Assets\Scripts\makemob.cs" />
+     <Compile Include="Assets\Scripts\prof.cs" />
+     <Compile Include="Assets\Scripts\timerhandler.cs" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

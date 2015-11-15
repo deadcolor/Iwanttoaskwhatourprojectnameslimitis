@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\changescore.cs" />
      <Compile Include="Assets\Scripts\checkFishbread.cs" />
      <Compile Include="Assets\Scripts\finalscore.cs" />
+     <Compile Include="Assets\Scripts\fishBread.cs" />
      <Compile Include="Assets\Scripts\lifeSystem.cs" />
      <Compile Include="Assets\Scripts\prof.cs" />
      <Compile Include="Assets\Scripts\timerhandler.cs" />

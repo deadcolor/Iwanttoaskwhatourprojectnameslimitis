@@ -29,8 +29,20 @@ public class MoldManager : MonoBehaviour {
 				this.transform.GetChild(selected).FindChild("CheckCircle").GetComponent<UnityEngine.UI.Image>().enabled = false;
 			selected = index;
 			this.transform.GetChild(index).FindChild("CheckCircle").GetComponent<UnityEngine.UI.Image>().enabled = true;
-			GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = true;
-		}
+
+            //Chk if Now on Store tap
+            bool isStoreTap=false;
+            if (GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().isMold == false)
+                isStoreTap = true; 
+            
+            if(isStoreTap)
+                GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToMoldingTap();
+
+            GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = true;
+
+            if(isStoreTap)
+                GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToStoreTap();
+        }
 	}
 
 	public bool isSelected()

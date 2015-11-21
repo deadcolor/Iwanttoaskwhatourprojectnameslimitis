@@ -8,6 +8,7 @@ public class prof : MonoBehaviour
     public string profName;
     public int breadType;
     public int breadNum;
+    public Sprite img;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class prof : MonoBehaviour
         profName = namae(breadType);
         recallTime = Random.Range(10, 15);
         breadNum = Random.Range(1, 4);
+        this.GetComponent<UnityEngine.UI.Image>().sprite = img;
     }
     void Update()
     {
@@ -31,17 +33,20 @@ public class prof : MonoBehaviour
     }
     public void goHome()
     {
+        if (breadType != 4)
+            GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
+
         if (GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum == 2)
         {
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1];
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.Translate(0,-10,0);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(6.0f, (-60.0f), 1.1f);
         }
         else if (GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum == 3)
         {
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1];
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[0];
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.Translate(0, -10, 0);
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1].transform.Translate(0, -10, 0);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(6.0f, (-60.0f), 1.1f);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1].transform.localPosition = new Vector3(3.0f, (0.0f), 2.1f);
         }
 
         GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum -= 1;
@@ -51,20 +56,24 @@ public class prof : MonoBehaviour
 
     public string namae(int type)
     {
-        int pronamae = Random.Range(0,3);
+        int pronamae = Random.Range(0, 3);
 
-        switch(type)
+        switch (type)
         {
             case 0:
                 switch (pronamae)
                 {
                     case 0:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[0];
                         return "윤은영";
                     case 1:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[1];
                         return "김종";
                     case 2:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[2];
                         return "김장우";
                     case 3:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[3];
                         return "박성우";
                 }
                 break;
@@ -72,12 +81,16 @@ public class prof : MonoBehaviour
                 switch (pronamae)
                 {
                     case 0:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[4];
                         return "이진수";
                     case 1:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[5];
                         return "김진택";
                     case 2:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[6];
                         return "김재준";
                     case 3:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[7];
                         return "정성준";
                 }
                 break;
@@ -85,12 +98,16 @@ public class prof : MonoBehaviour
                 switch (pronamae)
                 {
                     case 0:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[8];
                         return "조준호";
                     case 1:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[9];
                         return "이정수";
                     case 2:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[10];
                         return "김경태";
                     case 3:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[11];
                         return "박홍준";
                 }
                 break;
@@ -98,16 +115,21 @@ public class prof : MonoBehaviour
                 switch (pronamae)
                 {
                     case 0:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[12];
                         return "주태하";
                     case 1:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[13];
                         return "신승구";
                     case 2:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[14];
                         return "이은성";
                     case 3:
+                        img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[15];
                         return "이영민";
                 }
                 break;
             case 4:
+                img = GameObject.Find("SummonProf").GetComponent<Summonprof>().imgs[16];
                 return "넙죽이";
         }
         return "Error";

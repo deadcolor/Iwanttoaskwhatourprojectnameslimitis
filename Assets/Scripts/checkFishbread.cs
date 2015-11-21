@@ -61,7 +61,7 @@ public class checkFishbread : MonoBehaviour {
     public void giveFishBread()
     {
         //교수 함수에 인자 전달 
-        //GameObject.Find("교수프리팹").GetComponent<prof>.receiveFishBread(numUncooked,numBurned,numCITE,numCSE,numCHEM,numEE);
+        GameObject.Find("SummonProf").GetComponent<Summonprof>().receiveFishBread(numUncooked,numBurned,numCITE,numCSE,numCHEM,numEE);
         
         //전체 붕어빵 갯수 줄이기
         numUncookedTotal -= numUncooked;

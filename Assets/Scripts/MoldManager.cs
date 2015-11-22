@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MoldManager : MonoBehaviour {
 
 	int selected;
+	public Sprite[] breadimage;
+    public GameObject fishbreads;
+    public GameObject[] molds;
 
 	// Use this for initialization
 	void Start () {
@@ -48,5 +52,82 @@ public class MoldManager : MonoBehaviour {
 	public bool isSelected()
 	{
 		return (selected != -1);
+	}
+
+	public int GetSelected()
+	{
+		return selected;
+	}
+
+	public void SetSelected(int newselect)
+	{
+		selected = newselect;
+	}
+
+	public void BreadHarvest(GameObject Bread)
+	{
+        Debug.Log("Before for loop"+selected);
+        for (int i = 0; i < 6; i++)
+		{
+			if(this.transform.GetChild(i).childCount == 2)
+			{
+				if(this.transform.GetChild(i).transform.GetChild (1) == Bread)
+				{
+					selected = i;
+					break;
+				}
+			}
+		}
+        Debug.Log("After for loop" + selected);
+        for (int i = 0; i < 6; i++)
+		{
+			if (Bread.GetComponent<Image> ().sprite == breadimage [i])
+			{
+				switch(i)
+				{
+                    case 0:
+                        fishbreads.GetComponent<checkFishbread>().incTotUncooked();
+                        break;
+                    case 1:
+                        fishbreads.GetComponent<checkFishbread>().incTotBurned();
+                        break;
+                    case 2:
+                        fishbreads.GetComponent<checkFishbread>().incTotCHEM();
+                        break;
+                    case 3:
+                        fishbreads.GetComponent<checkFishbread>().incTotEE();
+                        break;
+                    case 4:
+                        fishbreads.GetComponent<checkFishbread>().incTotCSE();
+                        break;
+                    case 5:
+                        fishbreads.GetComponent<checkFishbread>().incTotCITE();
+                        break;
+                    default: break;
+                        /*
+                        case 0: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotUncooked ();
+                                break;
+                        case 1: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotBurned ();
+                                break;
+                        case 2: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotCHEM ();
+                                break;
+                        case 3: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotEE ();
+                                break;
+                        case 4: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotCSE ();
+                                break;
+                        case 5: GameObject.Find ("StoreTap").transform.FindChild("FishBreads").GetComponent<checkFishbread>().incTotCITE ();
+                                break;
+                        default: break;
+                        */
+                }
+
+				break;
+			}
+
+		}
+        //this.transform.GetChild(selected).GetComponent<Button>().interactable = true;
+        molds[selected].GetComponent<Button>().interactable = true;
+        Destroy(Bread);
+        selected = -1;
 	}
 }

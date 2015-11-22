@@ -7,7 +7,7 @@ public class Doughmake : MonoBehaviour
 	string [] CHEM = {"유기화학", "물리화학", "무기화학", "화학분석", "고분자화학", "화학반응실험", "합성실험"};
 	string [] EE = {"회로이론", "기초전자실험", "신호및시스템", "디지털시스템설계", "물리전자", "전자회로", "반도체전자공학"};
 	string [] CE = {"프로그래밍과문제해결", "객체지향프로그래밍", "데이터구조", "운영체제", "컴퓨터구조", "프로그래밍언어", "알고리즘"};
-	string [] CITE = {"창의IT설계", "인문기술융합개론", "인터렉션디자인스튜디오", "놀이와게임설계스튜디오", "인사조직론", "기술재무", "창업론"};
+	string [] CITE = {"창의IT설계", "인문기술융합개론", "생체의료공학", "자료구조및알고리즘", "인사조직론", "디시마프", "창업론"};
 	string [][] subject_list;
 	public GameObject [] ingredients;
 	public GameObject [] ingredient_list;
@@ -168,10 +168,24 @@ public class Doughmake : MonoBehaviour
 
 		if (ingredient.GetComponent<Toggle>().isOn == true)
 		{
+			ColorBlock temp = ingredient.GetComponent<Toggle>().colors;
+			temp.normalColor = ingredient.GetComponent<Toggle>().colors.pressedColor;
+			temp.highlightedColor = ingredient.GetComponent<Toggle>().colors.pressedColor;
+			temp.pressedColor = ingredient.GetComponent<Toggle>().colors.normalColor;
+
+			ingredient.GetComponent<Toggle>().colors = temp;
+
 			SelectIngredient (index);
 		}
 		else
 		{
+			ColorBlock temp = ingredient.GetComponent<Toggle>().colors;
+			temp.normalColor = ingredient.GetComponent<Toggle>().colors.pressedColor;
+			temp.highlightedColor = ingredient.GetComponent<Toggle>().colors.pressedColor;
+			temp.pressedColor = ingredient.GetComponent<Toggle>().colors.normalColor;
+
+			ingredient.GetComponent<Toggle>().colors = temp;
+
 			CancelIngredient (index);
 		}
 	}
@@ -296,9 +310,48 @@ public class Doughmake : MonoBehaviour
 		}
 		
 		GameObject gongdaebbang = GameObject.Instantiate (gongdaebbangs[gongdaebbangtype]);
-		gongdaebbang.transform.SetParent(GameObject.Find ("Gongdaebbangs List").transform);
-		gongdaebbang.transform.localPosition = new Vector3(-235, 100, 0);
-		gongdaebbang.transform.localScale = new Vector3(50, 50, 1);
+
+		int moldindex = GameObject.Find ("MoldManager").GetComponent<MoldManager> ().GetSelected();
+		GameObject mold = null;
+
+		switch (moldindex)
+		{
+			case 0:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold").transform);
+				mold = GameObject.Find ("Mold");
+				break;
+			case 1:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold (1)").transform);
+				mold = GameObject.Find ("Mold (1)");
+				break;
+			case 2:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold (2)").transform);
+				mold = GameObject.Find ("Mold (2)");
+				break;
+			case 3:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold (3)").transform);
+				mold = GameObject.Find ("Mold (3)");	
+				break;
+			case 4:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold (4)").transform);
+				mold = GameObject.Find ("Mold (4)");
+				break;
+			case 5:
+				gongdaebbang.transform.SetParent (GameObject.Find ("Mold (5)").transform);
+				mold = GameObject.Find ("Mold (5)");
+				break;
+			default:
+				break;
+		}
+
+		mold.transform.FindChild ("CheckCircle").GetComponentInChildren<Image>().enabled = false;
+		mold.GetComponent<Button>().interactable = false;
+
+		GameObject.Find ("MoldManager").GetComponent<MoldManager> ().SetSelected (-1);
+		GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = false;
+
+		gongdaebbang.transform.localPosition = new Vector3 (0, 0, 0);
+		gongdaebbang.transform.localScale = new Vector3(1, 1, 1);
 		
 		selectednum = 0;
 

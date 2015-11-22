@@ -61,7 +61,7 @@ public class checkFishbread : MonoBehaviour {
     public void giveFishBread()
     {
         //교수 함수에 인자 전달 
-        GameObject.Find("SummonProf").GetComponent<Summonprof>().receiveFishBread(numUncooked,numBurned,numCITE,numCSE,numCHEM,numEE);
+        //GameObject.Find("교수프리팹").GetComponent<prof>.receiveFishBread(numUncooked,numBurned,numCITE,numCSE,numCHEM,numEE);
         
         //전체 붕어빵 갯수 줄이기
         numUncookedTotal -= numUncooked;
@@ -113,6 +113,13 @@ public class checkFishbread : MonoBehaviour {
         uncookedText.text = "" + numUncooked;
     }
 
+	public void incTotUncooked()
+	{
+		numUncookedTotal++;
+	
+		uncookedTotalText.text = "" + numUncookedTotal;
+	}
+
     //탄 붕어빵의 체크 갯수를 높인다
     public void incChkBurned()
     {
@@ -130,6 +137,13 @@ public class checkFishbread : MonoBehaviour {
 
         burnedText.text = "" + numBurned;
     }
+
+	public void incTotBurned()
+	{
+		numBurnedTotal++;
+		
+		burnedTotalText.text = "" + numBurnedTotal;
+	}
 
     //창공과 붕어빵의 체크 갯수를 높인다
     public void incChkCITE()
@@ -149,6 +163,13 @@ public class checkFishbread : MonoBehaviour {
         citeText.text = "" + numCITE;
     }
 
+	public void incTotCITE()
+	{
+		numCITETotal++;
+		
+		citeTotalText.text = "" + numCITETotal;
+	}
+
     //컴공과 붕어빵의 체크 갯수를 높인다
     public void incChkCSE()
     {
@@ -167,7 +188,14 @@ public class checkFishbread : MonoBehaviour {
         cseText.text = "" + numCSE;
     }
 
-    //화공과 붕어빵의 체크 갯수를 높인다
+	public void incTotCSE()
+	{
+		numCSETotal++;
+		
+		cseTotalText.text = "" + numCSETotal;
+	}
+
+    //화학과 붕어빵의 체크 갯수를 높인다
     public void incChkCHEM()
     {
         if (numCHEMTotal > numCHEM)
@@ -176,7 +204,7 @@ public class checkFishbread : MonoBehaviour {
         chemText.text = "" + numCHEM;
     }
 
-    //화공과 붕어빵의 체크 갯수를 줄인다
+    //화학과 붕어빵의 체크 갯수를 줄인다
     public void decChkCHEM()
     {
         if (numCHEM > 0)
@@ -184,6 +212,13 @@ public class checkFishbread : MonoBehaviour {
 
         chemText.text = "" + numCHEM;
     }
+
+	public void incTotCHEM()
+	{
+		numCHEMTotal++;
+		
+		chemTotalText.text = "" + numCHEMTotal;
+	}
 
     //전자과 붕어빵의 체크 갯수를 높인다
     public void incChkEE()
@@ -202,4 +237,11 @@ public class checkFishbread : MonoBehaviour {
 
         eeText.text = "" + numEE;
     }
+
+	public void incTotEE()
+	{
+		numEETotal++;
+		
+		eeTotalText.text = "" + numEETotal;
+	}
 }

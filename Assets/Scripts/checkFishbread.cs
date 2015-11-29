@@ -34,35 +34,40 @@ public class checkFishbread : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        numUncookedTotal = 0;
-        numBurnedTotal = 0;
-        numCITETotal = 5;
-        numCSETotal = 5;
-        numCHEMTotal = 5;
-        numEETotal = 5;
-
-        //Initialize Checked Fishbread as 0
-        numUncooked = 0;
-        numBurned = 0;
-        numCITE = 0;
-        numCSE = 0;
-        numCHEM = 0;
-        numEE = 0;
-
-        uncookedTotalText.text = "" + numUncookedTotal;
-        burnedTotalText.text = "" + numBurnedTotal;
-        citeTotalText.text = "" + numCITETotal;
-        cseTotalText.text = "" + numCSETotal;
-        chemTotalText.text = "" + numCHEMTotal;
-        eeTotalText.text = "" + numEETotal;
+        
     }
+
+	public void initializeNumber()
+	{
+		numUncookedTotal = 0;
+		numBurnedTotal = 0;
+		numCITETotal = 5;
+		numCSETotal = 5;
+		numCHEMTotal = 5;
+		numEETotal = 5;
+		
+		//Initialize Checked Fishbread as 0
+		numUncooked = 0;
+		numBurned = 0;
+		numCITE = 0;
+		numCSE = 0;
+		numCHEM = 0;
+		numEE = 0;
+		
+		uncookedTotalText.text = "" + numUncookedTotal;
+		burnedTotalText.text = "" + numBurnedTotal;
+		citeTotalText.text = "" + numCITETotal;
+		cseTotalText.text = "" + numCSETotal;
+		chemTotalText.text = "" + numCHEMTotal;
+		eeTotalText.text = "" + numEETotal;
+	}
 
     //Give to Professor fishbread
     public void giveFishBread()
     {
         //교수 함수에 인자 전달 
-        //GameObject.Find("교수프리팹").GetComponent<prof>.receiveFishBread(numUncooked,numBurned,numCITE,numCSE,numCHEM,numEE);
-        
+        GameObject.Find("SummonProf").GetComponent<Summonprof>().receiveFishBread(numUncooked, numBurned, numCITE, numCSE, numCHEM, numEE);
+
         //전체 붕어빵 갯수 줄이기
         numUncookedTotal -= numUncooked;
         numBurnedTotal -= numBurned;

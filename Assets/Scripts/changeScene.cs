@@ -22,4 +22,14 @@ public class changeScene : MonoBehaviour {
     {
         Application.LoadLevel(3);
     }
+
+    public void goToGameScene1()
+    {
+        Application.LoadLevel(4);
+    }
+
+    public void goToGameScene2()
+    {
+        Application.LoadLevel(5);
+    }
 }

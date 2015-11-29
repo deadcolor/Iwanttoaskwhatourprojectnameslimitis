@@ -8,8 +8,11 @@ public class Summonprof : MonoBehaviour {
     public GameObject[] prof;
     public int profnum;
     public GameObject bal;
+    public int difficulty;
 
     public Sprite[] imgs = new Sprite[17];
+    public Sprite rage;
+    public Sprite nothing;
 
     void Start() {
         profnum = -1;
@@ -43,6 +46,18 @@ public class Summonprof : MonoBehaviour {
             prof[1].GetComponent<UnityEngine.UI.Image>().color = new Color(prof[1].GetComponent<UnityEngine.UI.Image>().color.r, prof[1].GetComponent<UnityEngine.UI.Image>().color.g, prof[1].GetComponent<UnityEngine.UI.Image>().color.b, 0.6f);
             prof[0].GetComponent<UnityEngine.UI.Image>().color = new Color(prof[0].GetComponent<UnityEngine.UI.Image>().color.r, prof[0].GetComponent<UnityEngine.UI.Image>().color.g, prof[0].GetComponent<UnityEngine.UI.Image>().color.b, 0.3f);
         }
+        if (profnum > 0)
+        {
+            if (prof[2].GetComponent<prof>().Max_recallTime >= prof[2].GetComponent<prof>().recallTime * 2)
+            {
+                GameObject.Find("rageLocation").GetComponent<UnityEngine.UI.Image>().sprite = rage;
+            }
+            else
+            {
+                GameObject.Find("rageLocation").GetComponent<UnityEngine.UI.Image>().sprite = nothing;
+            }
+            GameObject.Find("rageLocation").transform.SetSiblingIndex(prof[2].transform.GetSiblingIndex() + 1);
+        }
     }
 
     IEnumerator profshokan()
@@ -62,6 +77,7 @@ public class Summonprof : MonoBehaviour {
             if (profnum == 0)
             {
                 prof[2] = GameObject.Instantiate(proffesor);
+                prof[2].GetComponent<prof>().setDifficulty(difficulty);
                 prof[2].transform.SetParent(GameObject.Find("profLocation").transform);
                 prof[2].transform.localPosition = new Vector3(3.0f, (-60.0f), 2.1f);
                 prof[2].transform.localScale = new Vector3(2.0f, 2.4f, 0.1f);
@@ -69,6 +85,7 @@ public class Summonprof : MonoBehaviour {
             else if (profnum == 1)
             {
                 prof[1] = GameObject.Instantiate(proffesor);
+                prof[1].GetComponent<prof>().setDifficulty(difficulty);
                 prof[1].transform.SetParent(GameObject.Find("profLocation").transform);
                 prof[1].transform.localPosition = new Vector3(6.0f, (0.0f), 1.1f);
                 prof[1].transform.localScale = new Vector3(2.0f, 2.4f, 0.1f);
@@ -77,6 +94,7 @@ public class Summonprof : MonoBehaviour {
             else if (profnum == 2)
             {
                 prof[0] = GameObject.Instantiate(proffesor);
+                prof[0].GetComponent<prof>().setDifficulty(difficulty);
                 prof[0].transform.SetParent(GameObject.Find("profLocation").transform);
                 prof[0].transform.localPosition = new Vector3(9.0f, (60.0f), 0.1f);
                 prof[0].transform.localScale = new Vector3(2.0f, 2.4f, 0.1f);

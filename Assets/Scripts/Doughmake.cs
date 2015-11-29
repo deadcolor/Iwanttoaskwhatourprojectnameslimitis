@@ -14,7 +14,8 @@ public class Doughmake : MonoBehaviour
 	public Object [] chosen_list;
 	public GameObject [] gongdaebbangs;
 	GameObject Ingredient;
-	int selectednum;
+    int selectednum;
+    public int difficulty;
 
 	void Start ()
 	{
@@ -308,8 +309,9 @@ public class Doughmake : MonoBehaviour
 				gongdaebbangtype = 4;
 			}
 		}
-		
-		GameObject gongdaebbang = GameObject.Instantiate (gongdaebbangs[gongdaebbangtype]);
+
+        GameObject gongdaebbang = GameObject.Instantiate(gongdaebbangs[gongdaebbangtype]);
+        gongdaebbang.GetComponent<fishBread>().setDifficulty(difficulty);
 
 		int moldindex = GameObject.Find ("MoldManager").GetComponent<MoldManager> ().GetSelected();
 		GameObject mold = null;

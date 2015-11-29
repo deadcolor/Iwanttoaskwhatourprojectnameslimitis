@@ -3,6 +3,7 @@ using System.Collections;
 
 public class prof : MonoBehaviour
 {
+    public float Max_recallTime;
     public float recallTime;
     public bool isActive;
     public string profName;
@@ -15,8 +16,6 @@ public class prof : MonoBehaviour
         isActive = false;
         breadType = Random.Range(0, 5);
         profName = namae(breadType);
-        recallTime = Random.Range(10, 15);
-        breadNum = Random.Range(1, 4);
         this.GetComponent<UnityEngine.UI.Image>().sprite = img;
     }
     void Update()
@@ -133,5 +132,24 @@ public class prof : MonoBehaviour
                 return "넙죽이";
         }
         return "Error";
+    }
+    public void setDifficulty(int _diff)
+    {
+        if (_diff == 0)
+        {
+            breadNum = Random.Range(1, 3);
+            recallTime = 20;
+        }
+        else if (_diff == 1)
+        {
+            breadNum = Random.Range(2, 4);
+            recallTime = 18;
+        }
+        else
+        {
+            breadNum = Random.Range(3, 5);
+            recallTime = 16;
+        }
+        Max_recallTime = recallTime;
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class fishBread : MonoBehaviour {
 	// 한쪽 면이 익는 시간, 익은 상태에서 타는 시간을 나타내는 상수들
-	const int OneSideDone = 3, DoneToBurn = 3;
+    const int OneSideDone=5;
+    int DoneToBurn;
 
 	// 시간 재는데 사용
 	float time;
@@ -82,4 +83,14 @@ public class fishBread : MonoBehaviour {
 		}
 
 	}
+
+    public void setDifficulty(int _diff)
+    {
+        if (_diff == 0)
+            DoneToBurn = 14;
+        else if (_diff == 1)
+            DoneToBurn = 12;
+        else
+            DoneToBurn = 10;
+    }
 }

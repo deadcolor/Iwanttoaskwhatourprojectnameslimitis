@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class BGMmanager : MonoBehaviour {
-
-	// Use this for initialization
+    // Use this for initialization
+    public AudioSource introBGM;
+    void Awake () {
+        if (changeScene.BGMplayed == 0)
+        {
+            introBGM.Play();
+        }
+        changeScene.BGMplayed++;
+    }
 	void Start () {
-        DontDestroyOnLoad(transform.gameObject);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        DontDestroyOnLoad(GameObject.Find("BGM"));
+    }
 }

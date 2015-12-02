@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class changeScene : MonoBehaviour {
-
+    public static int BGMplayed = 0;
     public void goTointroScene()
     {
         Application.LoadLevel(0);

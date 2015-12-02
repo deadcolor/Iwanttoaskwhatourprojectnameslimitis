@@ -10,11 +10,17 @@ public class prof : MonoBehaviour
     public int breadType;
     public int breadNum;
     public Sprite img;
+	public int randdd;
 
     void Start()
     {
         isActive = false;
+		randdd = Random.Range (0, 2);
         breadType = Random.Range(0, 5);
+		if (breadType == 4) {
+			if(randdd == 1)
+				breadType = Random.Range (0, 4);
+		}
         profName = namae(breadType);
         this.GetComponent<UnityEngine.UI.Image>().sprite = img;
     }
@@ -38,14 +44,14 @@ public class prof : MonoBehaviour
         if (GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum == 2)
         {
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1];
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(6.0f, (-60.0f), 1.1f);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(-30.0f, (-60.0f), 1.1f);
         }
         else if (GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum == 3)
         {
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1];
             GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1] = GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[0];
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(6.0f, (-60.0f), 1.1f);
-            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1].transform.localPosition = new Vector3(3.0f, (0.0f), 2.1f);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[2].transform.localPosition = new Vector3(-30.0f, (-60.0f), 1.1f);
+            GameObject.Find("SummonProf").GetComponent<Summonprof>().prof[1].transform.localPosition = new Vector3(0.0f, (0.0f), 2.1f);
         }
 
         GameObject.Find("SummonProf").GetComponent<Summonprof>().profnum -= 1;

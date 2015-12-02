@@ -156,4 +156,23 @@ public class MoldManager : MonoBehaviour {
         Destroy(Bread);
         selected = -1;
 	}
+
+	public void Pump()
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			if(molds[i].transform.childCount == 2)
+			{
+				for(int j = 0; j < 2; j++)
+				{
+					if(molds[i].transform.GetChild(j).name != "CheckCircle")
+					{
+						molds[i].transform.GetChild (j).GetComponent<fishBread>().PumpPressed ();
+						
+						break;
+					}
+				}
+			}
+		}
+	}
 }

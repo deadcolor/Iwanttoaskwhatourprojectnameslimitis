@@ -32,4 +32,14 @@ public class changeScene : MonoBehaviour {
     {
         Application.LoadLevel(5);
     }
+
+	public void goToExplainScene()
+	{
+		Application.LoadLevel (6);
+	}
+
+	public void goToStoryScene()
+	{
+		Application.LoadLevel (7);
+	}
 }

@@ -93,4 +93,9 @@ public class fishBread : MonoBehaviour {
         else
             DoneToBurn = 12;
     }
+
+	public void PumpPressed()
+	{
+		time += 0.2f;
+	}
 }

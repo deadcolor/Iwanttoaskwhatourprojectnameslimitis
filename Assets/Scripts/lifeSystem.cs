@@ -50,4 +50,16 @@ public class lifeSystem : MonoBehaviour {
             GameObject.Find("SceneManager").GetComponent<changeScene>().goToScoreScene();
         }
 	}
+	public void lifeIncrease()
+	{
+		if (life >= maxLife) {
+			life = maxLife;
+		} else {
+			++life;
+			GameObject lifeBar = GameObject.Find ("LifeIndicator");
+			GameObject cell = lifeBar.transform.GetChild (life-1).gameObject;
+			
+			cell.GetComponent<UnityEngine.UI.Image> ().sprite = filled;
+		}
+	}
 }

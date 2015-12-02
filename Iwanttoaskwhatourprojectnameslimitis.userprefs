@@ -1,13 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\changeStoryScene.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\gameBGMmanager.cs">
     <Files>
-      <File FileName="Assets\Scripts\changeStoryScene.cs" Line="8" Column="25" />
+      <File FileName="Assets\Scripts\changeStoryScene.cs" Line="11" Column="28" />
       <File FileName="Assets\Scripts\Summonprof.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\lifeSystem.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\prof.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\timerhandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\changeScene.cs" Line="31" Column="33" />
+      <File FileName="Assets\Scripts\changeScene.cs" Line="46" Column="1" />
+      <File FileName="Assets\Scripts\fishBread.cs" Line="101" Column="2" />
+      <File FileName="..\..\About Pump\MoldManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\gameBGMmanager.cs" Line="16" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

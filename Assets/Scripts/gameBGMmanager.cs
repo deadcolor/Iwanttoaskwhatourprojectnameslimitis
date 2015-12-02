@@ -10,6 +10,10 @@ public class gameBGMmanager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+	}
+
+	void OnDestroy(){
+		changeScene.BGMplayed = 0;
 	}
 }

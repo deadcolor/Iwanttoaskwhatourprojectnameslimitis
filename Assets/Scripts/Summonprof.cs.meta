@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 65c3d0ceb38c1914595855a56a678433
-timeCreated: 1447565804
+timeCreated: 1449060175
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -8,6 +8,9 @@ MonoImporter:
   - proffesor: {instanceID: 0}
   - proffesorSaid: {instanceID: 0}
   - bal: {instanceID: 0}
+  - rage: {instanceID: 0}
+  - nothing: {instanceID: 0}
+  - ragesound: {fileID: 8300000, guid: a0c6b438a3952344ca0add73c4bd7db5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

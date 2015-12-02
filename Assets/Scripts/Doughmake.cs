@@ -365,7 +365,7 @@ public class Doughmake : MonoBehaviour
 	{
 		bool subject_check = true;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			if(subject_list[i][1] == "")
 			{

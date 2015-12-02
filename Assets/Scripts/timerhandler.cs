@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class timerhandler : MonoBehaviour {
     public Image timerbar;
-    const int totaltime=120;
+    const int totaltime=180;
 	// Use this for initialization
 	void Start () {
         timerbar.fillAmount = 0;

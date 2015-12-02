@@ -25,7 +25,17 @@ public class MoldManager : MonoBehaviour {
 		{
 			this.transform.GetChild(selected).FindChild("CheckCircle").GetComponent<UnityEngine.UI.Image>().enabled = false;
 			selected = -1;
-			GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = false;
+            bool isStoreTap = false;
+            if (GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().isMold == false)
+                isStoreTap = true;
+
+            if (isStoreTap)
+                GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToMoldingTap();
+
+            GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = false;
+
+            if (isStoreTap)
+                GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToStoreTap();
 		}
 		else
 		{
@@ -129,6 +139,18 @@ public class MoldManager : MonoBehaviour {
 			}
 
 		}
+
+        bool isStoreTap = false;
+        if (GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().isMold == false)
+            isStoreTap = true;
+
+        if (isStoreTap)
+            GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToMoldingTap();
+
+        GameObject.Find("Put Button").GetComponent<UnityEngine.UI.Button>().interactable = false;
+
+        if (isStoreTap)
+            GameObject.Find("StoreTapButton").GetComponent<DisableRightWindow>().turnToStoreTap();
 
         molds[selected].GetComponent<Button>().interactable = true;
         Destroy(Bread);

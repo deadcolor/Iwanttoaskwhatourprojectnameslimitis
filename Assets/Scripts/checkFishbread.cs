@@ -15,6 +15,7 @@ public class checkFishbread : MonoBehaviour {
     public Text chemTotalText;
     public Text eeText;
     public Text eeTotalText;
+    public AudioClip fishbreadsound;
 
     //Number of Total Fishbread;
     int numUncookedTotal;
@@ -32,8 +33,8 @@ public class checkFishbread : MonoBehaviour {
     int numCHEM;
     int numEE;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         
     }
 
@@ -65,6 +66,7 @@ public class checkFishbread : MonoBehaviour {
     //Give to Professor fishbread
     public void giveFishBread()
     {
+        AudioSource.PlayClipAtPoint(fishbreadsound, transform.position);
         //교수 함수에 인자 전달 
         GameObject.Find("SummonProf").GetComponent<Summonprof>().receiveFishBread(numUncooked, numBurned, numCITE, numCSE, numCHEM, numEE);
 

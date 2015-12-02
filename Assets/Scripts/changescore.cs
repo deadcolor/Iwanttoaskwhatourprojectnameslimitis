@@ -23,6 +23,6 @@ public class changescore : MonoBehaviour
 
     public void getPoint()
     {
-        increasescore(10 + difficulty * 5);
+        increasescore(20 + difficulty * 10);
     }
 }

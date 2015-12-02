@@ -13,6 +13,7 @@ public class Summonprof : MonoBehaviour {
     public Sprite[] imgs = new Sprite[17];
     public Sprite rage;
     public Sprite nothing;
+    public AudioClip ragesound;
 
     void Start() {
         profnum = -1;
@@ -51,6 +52,7 @@ public class Summonprof : MonoBehaviour {
             if (prof[2].GetComponent<prof>().Max_recallTime >= prof[2].GetComponent<prof>().recallTime * 2)
             {
                 GameObject.Find("rageLocation").GetComponent<UnityEngine.UI.Image>().sprite = rage;
+                AudioSource.PlayClipAtPoint(ragesound, transform.position);
             }
             else
             {
@@ -63,7 +65,7 @@ public class Summonprof : MonoBehaviour {
     IEnumerator profshokan()
     {
         prof = new GameObject[3];
-        yield return new WaitForSeconds(Random.Range(5, 10));
+        yield return new WaitForSeconds(10);
 
         profnum = 0;
 
@@ -104,7 +106,7 @@ public class Summonprof : MonoBehaviour {
             if (profnum < 3)
                 profnum++;
 
-            yield return new WaitForSeconds(Random.Range(6, 11));
+            yield return new WaitForSeconds(Random.Range(2,5));
         }
     }
 
@@ -133,31 +135,31 @@ public class Summonprof : MonoBehaviour {
         {
             case 0:
                 if (numCSE == breadNum && numUncooked == 0 && numBurned == 0 && numCITE == 0 && numCHEM == 0 && numEE == 0)
-                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().increasescore(100);
+                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().getPoint();
                 else
                     GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
                 break;
             case 1:
                 if (numCITE == breadNum && numUncooked == 0 && numBurned == 0 && numCSE == 0 && numCHEM == 0 && numEE == 0)
-                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().increasescore(100);
+                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().getPoint();
                 else
                     GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
                 break;
             case 2:
                 if (numEE == breadNum && numUncooked == 0 && numBurned == 0 && numCSE == 0 && numCHEM == 0 && numCITE == 0)
-                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().increasescore(100);
+                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().getPoint();
                 else
                     GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
                 break;
             case 3:
                 if (numCHEM == breadNum && numUncooked == 0 && numBurned == 0 && numCSE == 0 && numEE == 0 && numCITE == 0)
-                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().increasescore(100);
+                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().getPoint();
                 else
                     GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
                 break;
             case 4:
                 if (numBurned != 0 || numUncooked != 0)
-                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().increasescore(100);
+                    GameObject.Find("SCORENUMBER").GetComponent<changescore>().getPoint();
                 else
                     GameObject.Find("LifeSystemObject").GetComponent<lifeSystem>().lifeDecrease();
                 break;

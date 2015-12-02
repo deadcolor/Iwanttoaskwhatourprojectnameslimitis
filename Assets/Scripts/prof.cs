@@ -138,17 +138,17 @@ public class prof : MonoBehaviour
         if (_diff == 0)
         {
             breadNum = Random.Range(1, 3);
-            recallTime = 20;
+            recallTime = 30;
         }
         else if (_diff == 1)
         {
-            breadNum = Random.Range(2, 4);
-            recallTime = 18;
+            breadNum = Random.Range(1, 3);
+            recallTime = 25;
         }
         else
         {
-            breadNum = Random.Range(3, 5);
-            recallTime = 16;
+            breadNum = Random.Range(2, 3);
+            recallTime = 20;
         }
         Max_recallTime = recallTime;
     }

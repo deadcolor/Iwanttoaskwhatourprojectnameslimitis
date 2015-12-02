@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{1B17595A-CFE5-B466-0B2D-0DDCD6D77D0A}</ProjectGuid>
+	<ProjectGuid>{F6FF54F6-3EB6-E4FC-F67D-C9D77E567AB7}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,17 +45,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BGMmanager.cs" />
      <Compile Include="Assets\Scripts\DisableRightWindow.cs" />
      <Compile Include="Assets\Scripts\Doughmake.cs" />
      <Compile Include="Assets\Scripts\MoldManager.cs" />
      <Compile Include="Assets\Scripts\Summonprof.cs" />
+     <Compile Include="Assets\Scripts\changeImage.cs" />
      <Compile Include="Assets\Scripts\changeScene.cs" />
      <Compile Include="Assets\Scripts\changescore.cs" />
      <Compile Include="Assets\Scripts\checkFishbread.cs" />
      <Compile Include="Assets\Scripts\finalscore.cs" />
      <Compile Include="Assets\Scripts\fishBread.cs" />
+     <Compile Include="Assets\Scripts\gameBGMmanager.cs" />
      <Compile Include="Assets\Scripts\lifeSystem.cs" />
      <Compile Include="Assets\Scripts\prof.cs" />
+     <Compile Include="Assets\Scripts\scoreBGMmanager.cs" />
      <Compile Include="Assets\Scripts\timerhandler.cs" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
  <Reference Include="UnityEngine.UI">
